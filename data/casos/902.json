@@ -1,0 +1,500 @@
+{
+ "version": 1,
+ "id": "902",
+ "borrador_revision_clinica": true,
+ "motivo": "Un dolor en el costado que no me deja quedarme quieto",
+ "especialidad": "Nefrología",
+ "nivel": "Básico",
+ "minutos_estimados": 12,
+ "modo": "clasico",
+ "paciente": {
+  "nombre": "Jhon",
+  "sexo": "M",
+  "edad": 35,
+  "ocupacion": "Albañil",
+  "descripcion_imagen": "Ilustración realista de un hombre peruano de 35 años, robusto, piel trigueña, pelo negro corto, de pie junto a una camilla de emergencia y ligeramente encorvado hacia el lado derecho, con una mano en el costado y la otra en la cintura, gesto de dolor, polo gris con manchas de cemento. Plano hasta las rodillas, fondo neutro de box hospitalario, luz fría, sin texto ni monitores dibujados."
+ },
+ "escenario": {
+  "lugar": "Emergencia de un hospital del MINSA, Lima",
+  "momento": "Sábado, 03:40",
+  "triaje": "Varón de 35 años con dolor intenso en el costado derecho de inicio brusco. Prioridad II.",
+  "al_entrar": "Llega caminando, encorvado, con la mano en el costado derecho. No logra quedarse sentado: se levanta, camina por el box y vuelve a sentarse."
+ },
+ "diagnostico": {
+  "principal": "Cólico renal por litiasis ureteral",
+  "terminos_aceptados": [
+   "cólico renal",
+   "cólico nefrítico",
+   "litiasis ureteral",
+   "litiasis renal",
+   "nefrolitiasis",
+   "urolitiasis",
+   "cálculo ureteral",
+   "piedra en el riñón"
+  ],
+  "cie10": "N20.1"
+ },
+ "anamnesis": [
+  {
+   "grupo": "El dolor",
+   "preguntas": [
+    {
+     "id": "A01",
+     "pregunta": "¿Dónde le duele exactamente?",
+     "respuesta": "En el costado derecho, aquí en la espalda baja, debajo de las costillas.",
+     "relevancia": "util",
+     "dato": "Dolor en flanco y fosa lumbar derechos"
+    },
+    {
+     "id": "A02",
+     "pregunta": "¿Cómo empezó y cómo es el dolor?",
+     "respuesta": "Empezó de golpe hace unas tres horas, mientras dormía. Viene en oleadas muy fuertes, un 9 sobre 10, y luego baja un poco pero no se va.",
+     "relevancia": "clave",
+     "dato": "Inicio brusco nocturno, dolor intenso en oleadas"
+    },
+    {
+     "id": "A03",
+     "pregunta": "¿Qué postura le alivia?",
+     "respuesta": "Ninguna. Me siento, me paro, camino, y nada me calma. No puedo estar quieto.",
+     "relevancia": "clave",
+     "dato": "Inquietud: no encuentra postura antiálgica"
+    },
+    {
+     "id": "A04",
+     "pregunta": "¿El dolor se va hacia otra parte?",
+     "respuesta": "Sí, me baja hacia la ingle y hasta el testículo derecho.",
+     "relevancia": "clave",
+     "dato": "Irradiación a ingle y testículo derecho"
+    },
+    {
+     "id": "A05",
+     "pregunta": "¿Empeora al respirar, toser o moverse?",
+     "respuesta": "No, respirar no cambia nada. Moverme tampoco lo empeora ni lo mejora.",
+     "relevancia": "util",
+     "dato": "Dolor no pleurítico ni mecánico"
+    }
+   ]
+  },
+  {
+   "grupo": "Síntomas acompañantes",
+   "preguntas": [
+    {
+     "id": "A06",
+     "pregunta": "¿Ha notado cambios en la orina?",
+     "respuesta": "Está más oscura, como rosada. Tengo ganas de orinar seguido, pero sale poquito.",
+     "relevancia": "clave",
+     "dato": "Hematuria macroscópica leve, polaquiuria"
+    },
+    {
+     "id": "A07",
+     "pregunta": "¿Ha tenido náuseas o vómitos?",
+     "respuesta": "Sí, vomité dos veces por el dolor.",
+     "relevancia": "util",
+     "dato": "Náuseas y 2 vómitos"
+    },
+    {
+     "id": "A08",
+     "pregunta": "¿Ha tenido fiebre o escalofríos?",
+     "respuesta": "No, nada de fiebre ni escalofríos.",
+     "relevancia": "clave",
+     "dato": "Sin fiebre ni escalofríos"
+    },
+    {
+     "id": "A09",
+     "pregunta": "¿Le arde al orinar?",
+     "respuesta": "Un poco molesta al final, pero no me arde fuerte.",
+     "relevancia": "util",
+     "dato": "Molestia terminal leve al orinar"
+    }
+   ]
+  },
+  {
+   "grupo": "Antecedentes",
+   "preguntas": [
+    {
+     "id": "A10",
+     "pregunta": "¿Había tenido un dolor así o ha expulsado cálculos?",
+     "respuesta": "Nunca. Mi papá sí botó piedras, pero yo no.",
+     "relevancia": "util",
+     "dato": "Primer episodio; padre con litiasis"
+    },
+    {
+     "id": "A11",
+     "pregunta": "¿Tiene alguna enfermedad o toma medicinas?",
+     "respuesta": "No, nada. Solo una pastilla de paracetamol hace una hora y no me hizo nada.",
+     "relevancia": "util",
+     "dato": "Sano, sin medicinas habituales; paracetamol sin efecto"
+    },
+    {
+     "id": "A12",
+     "pregunta": "¿Tiene alergias a medicamentos?",
+     "respuesta": "No, a ninguno.",
+     "relevancia": "util",
+     "dato": "Sin alergias medicamentosas"
+    }
+   ]
+  },
+  {
+   "grupo": "Hábitos",
+   "preguntas": [
+    {
+     "id": "A13",
+     "pregunta": "¿Cuánto líquido toma al día y cómo es su trabajo?",
+     "respuesta": "Trabajo todo el día en la obra bajo el sol y casi no tomo agua. Más bien gaseosa.",
+     "relevancia": "util",
+     "dato": "Baja ingesta hídrica, calor laboral, consumo de gaseosas"
+    },
+    {
+     "id": "A14",
+     "pregunta": "¿Cómo es su alimentación y consume alcohol?",
+     "respuesta": "Como mucha carne y poca verdura. Alcohol, cerveza los fines de semana.",
+     "relevancia": "ruido",
+     "dato": "Dieta rica en carne; alcohol de fin de semana"
+    }
+   ]
+  },
+  {
+   "grupo": "Descartar otras causas",
+   "preguntas": [
+    {
+     "id": "A15",
+     "pregunta": "¿Ha tenido un golpe en el costado o la espalda?",
+     "respuesta": "No, ningún golpe.",
+     "relevancia": "ruido",
+     "dato": "Sin trauma lumbar"
+    }
+   ]
+  }
+ ],
+ "exploracion": {
+  "constantes": {
+   "TA": "148/92",
+   "FC": 98,
+   "FR": 20,
+   "SatO2": 98,
+   "T": 36.8
+  },
+  "regiones": [
+   {
+    "region": "Aspecto general",
+    "hallazgo": "Inquieto, se retuerce, se levanta y vuelve a sentarse. Sudoroso, con gesto de dolor intenso, sin palidez marcada.",
+    "clave": true,
+    "valor_semiologico": "El paciente que no encuentra postura sugiere dolor visceral cólico, a diferencia de la peritonitis, donde el enfermo permanece inmóvil porque cualquier movimiento duele. Verificar su peso en McGee 4.ª ed."
+   },
+   {
+    "region": "Cabeza y cuello",
+    "hallazgo": "Mucosas húmedas, sin ictericia. Sin adenopatías.",
+    "clave": false,
+    "valor_semiologico": "Sin signos de deshidratación grave."
+   },
+   {
+    "region": "Tórax y pulmones",
+    "hallazgo": "Murmullo vesicular conservado, sin ruidos agregados.",
+    "clave": false,
+    "valor_semiologico": "Aleja una causa torácica, como una neumonía basal, del dolor en el flanco."
+   },
+   {
+    "region": "Corazón",
+    "hallazgo": "Ritmo regular, sin soplos.",
+    "clave": false,
+    "valor_semiologico": "Sin hallazgos relevantes para este caso."
+   },
+   {
+    "region": "Abdomen",
+    "hallazgo": "Blando, depresible. Dolor leve a la palpación profunda en el flanco y la fosa lumbar derechos, sin defensa ni rebote. Ruidos hidroaéreos presentes. Sin masa pulsátil.",
+    "clave": false,
+    "valor_semiologico": "La ausencia de defensa y de rebote aleja una apendicitis o una peritonitis. La ausencia de masa pulsátil no es una exclusión suficiente de un aneurisma en pacientes de riesgo, pero a esta edad es improbable."
+   },
+   {
+    "region": "Extremidades y piel",
+    "hallazgo": "Sin edemas. Sin lesiones cutáneas. Sin vesículas en el flanco.",
+    "clave": false,
+    "valor_semiologico": "Sin lesiones de herpes zóster que expliquen un dolor en el flanco."
+   },
+   {
+    "region": "Neurológico",
+    "hallazgo": "Consciente y orientado. Sin focalidad.",
+    "clave": false,
+    "valor_semiologico": "Sin hallazgos relevantes para este caso."
+   },
+   {
+    "region": "Puñopercusión lumbar (maniobra)",
+    "hallazgo": "Dolor intenso al percutir la fosa lumbar derecha. Izquierda sin dolor.",
+    "clave": true,
+    "valor_semiologico": "Un dolor a la puñopercusión lumbar unilateral apoya un origen renal o ureteral y obliga a descartar infección y obstrucción. Verificar su sensibilidad en McGee 4.ª ed."
+   },
+   {
+    "region": "Genitales y región inguinal",
+    "hallazgo": "Testículos de tamaño normal, sin dolor ni ascenso, reflejo cremastérico presente. Sin hernias.",
+    "clave": false,
+    "valor_semiologico": "En un dolor con irradiación al testículo hay que descartar torsión: el examen normal con reflejo cremastérico presente la aleja."
+   }
+  ]
+ },
+ "monitor": {
+  "ritmo": "sinusal",
+  "fc": 98,
+  "spo2": 98,
+  "ta": "148/92",
+  "fr": 20,
+  "temp": 36.8
+ },
+ "hipotesis": [
+  {
+   "nombre": "Cólico renal por litiasis ureteral",
+   "rol": "principal",
+   "a_favor": "Dolor en oleadas, de inicio brusco, con irradiación a la ingle y el testículo, inquietud, hematuria, vómitos, puñopercusión positiva, antecedente familiar y poca ingesta de agua.",
+   "en_contra": "Nada relevante."
+  },
+  {
+   "nombre": "Pielonefritis aguda u obstrucción infectada",
+   "rol": "no_dejar_escapar",
+   "a_favor": "Dolor lumbar y molestia al orinar.",
+   "en_contra": "No hay fiebre ni escalofríos ni piuria. Hay que descartarla porque una obstrucción infectada es una urgencia."
+  },
+  {
+   "nombre": "Apendicitis aguda",
+   "rol": "plausible",
+   "a_favor": "Dolor en el lado derecho, náuseas y vómitos.",
+   "en_contra": "Dolor lumbar en oleadas, sin defensa ni rebote, con hematuria."
+  },
+  {
+   "nombre": "Aneurisma de aorta abdominal complicado",
+   "rol": "no_dejar_escapar",
+   "a_favor": "Dolor de inicio brusco en el flanco.",
+   "en_contra": "Edad joven, sin factores de riesgo, sin masa pulsátil, sin hipotensión."
+  },
+  {
+   "nombre": "Torsión testicular",
+   "rol": "plausible",
+   "a_favor": "Dolor irradiado al testículo.",
+   "en_contra": "Examen testicular normal con reflejo cremastérico presente."
+  },
+  {
+   "nombre": "Lumbalgia mecánica",
+   "rol": "distractor",
+   "a_favor": "Trabajo de albañilería con esfuerzo físico.",
+   "en_contra": "El dolor no depende de la postura ni del movimiento y se acompaña de hematuria."
+  },
+  {
+   "nombre": "Herpes zóster en fase prevesicular",
+   "rol": "distractor",
+   "a_favor": "Dolor unilateral intenso en el flanco.",
+   "en_contra": "No hay lesiones cutáneas, el dolor es cólico y hay hematuria."
+  }
+ ],
+ "pruebas": [
+  {
+   "id": "P01",
+   "nombre": "Examen de orina completo",
+   "minutos": 20,
+   "valor": "imprescindible",
+   "resultado": "Hematuria: 25-30 hematíes por campo. Leucocitos 2-3 por campo. Nitritos negativos. pH 5,5. Sin cilindros.",
+   "imagen": null,
+   "interpretacion": "La hematuria apoya el origen urinario. La ausencia de leucocitos y de nitritos hace improbable una infección."
+  },
+  {
+   "id": "P02",
+   "nombre": "Ecografía renal y de vías urinarias",
+   "minutos": 20,
+   "valor": "imprescindible",
+   "resultado": "Riñón derecho con dilatación leve del sistema pielocalicial (hidronefrosis leve). Riñón izquierdo normal. Vejiga sin alteraciones.",
+   "imagen": "Ecografía del riñón derecho con dilatación leve de los cálices y la pelvis renal; el riñón izquierdo no muestra dilatación.",
+   "interpretacion": "La hidronefrosis unilateral indica obstrucción de la vía urinaria. Es una prueba sin radiación que confirma la obstrucción."
+  },
+  {
+   "id": "P03",
+   "nombre": "Creatinina, hemograma y PCR",
+   "minutos": 45,
+   "valor": "razonable",
+   "resultado": "Creatinina 1,0 mg/dL (referencia 0,7-1,3). Leucocitos 9 800/mm³ (referencia 4 000-10 000). PCR 4 mg/L (referencia <5).",
+   "imagen": null,
+   "interpretacion": "Función renal normal y sin signos de infección, lo que permite el manejo ambulatorio."
+  },
+  {
+   "id": "P04",
+   "nombre": "Tomografía abdominal sin contraste",
+   "minutos": 60,
+   "valor": "razonable",
+   "resultado": "Cálculo de 5 mm en el uréter derecho, cerca de la unión con la vejiga, con hidronefrosis leve. Sin otros hallazgos.",
+   "imagen": "Tomografía abdominopélvica sin contraste con un cálculo denso de unos 5 mm en el uréter distal derecho y leve dilatación del sistema colector.",
+   "interpretacion": "Confirma el tamaño y la localización del cálculo, que orientan la conducta. No es obligatoria si la ecografía y la clínica concuerdan y no hay signos de complicación."
+  },
+  {
+   "id": "P05",
+   "nombre": "Radiografía simple de abdomen",
+   "minutos": 15,
+   "valor": "bajo_valor",
+   "resultado": "No se visualiza cálculo, con abundante gas intestinal.",
+   "imagen": "Radiografía simple de abdomen con abundante gas intestinal y sin opacidades que sugieran un cálculo.",
+   "interpretacion": "Sensibilidad limitada: no detecta cálculos radiolúcidos ni los pequeños ocultos por el gas. Un resultado normal no descarta litiasis."
+  },
+  {
+   "id": "P06",
+   "nombre": "Urografía excretora con contraste",
+   "minutos": 90,
+   "valor": "no_procede",
+   "resultado": "Retraso en la eliminación del contraste por el riñón derecho, con dilatación del uréter proximal.",
+   "imagen": null,
+   "interpretacion": "Ha sido reemplazada por la ecografía y la tomografía sin contraste. Usa contraste y radiación sin necesidad."
+  },
+  {
+   "id": "P07",
+   "nombre": "Cistoscopia urgente",
+   "minutos": 120,
+   "valor": "no_procede",
+   "resultado": "Vejiga sin lesiones. Orificio ureteral derecho levemente edematoso.",
+   "imagen": null,
+   "interpretacion": "Procedimiento invasivo sin indicación en un cólico no complicado."
+  }
+ ],
+ "plan": [
+  {
+   "id": "M01",
+   "medida": "Analgesia con un AINE (por ejemplo, diclofenaco 75 mg IM en dosis única)",
+   "categoria": "imprescindible",
+   "justificacion": "Los AINE son el analgésico de primera línea del cólico renal. Verificar la dosis en la guía de la EAU."
+  },
+  {
+   "id": "M02",
+   "medida": "Descartar complicaciones: fiebre, infección urinaria, riñón único y deterioro de la función renal",
+   "categoria": "imprescindible",
+   "justificacion": "Un cálculo obstructivo con infección o con riñón único es una urgencia urológica que requiere derivación inmediata."
+  },
+  {
+   "id": "M03",
+   "medida": "Alta con signos de alarma por escrito (fiebre, dolor que no cede, vómitos persistentes, no orinar) y control con urología",
+   "categoria": "imprescindible",
+   "justificacion": "En un cálculo pequeño sin complicaciones el manejo ambulatorio es seguro si el paciente sabe cuándo volver."
+  },
+  {
+   "id": "M04",
+   "medida": "Filtrar la orina y guardar el cálculo para su análisis",
+   "categoria": "razonable",
+   "justificacion": "El análisis del cálculo orienta la prevención de nuevos episodios."
+  },
+  {
+   "id": "M05",
+   "medida": "Antiemético si hay náuseas (por ejemplo, ondansetrón)",
+   "categoria": "razonable",
+   "justificacion": "Alivia las náuseas y permite tolerar la vía oral y el tratamiento ambulatorio."
+  },
+  {
+   "id": "M06",
+   "medida": "Tamsulosina para facilitar la expulsión del cálculo si es de ubicación distal y el dolor está controlado",
+   "categoria": "condicional",
+   "justificacion": "La evidencia sobre el beneficio de los alfabloqueantes es discutida. Verificar la recomendación vigente de la EAU."
+  },
+  {
+   "id": "M07",
+   "medida": "Aumentar la ingesta de agua para prevenir recurrencias, una vez resuelto el cuadro agudo",
+   "categoria": "razonable",
+   "justificacion": "Una ingesta de líquidos alta reduce el riesgo de recurrencia; no acelera la expulsión durante el cólico."
+  },
+  {
+   "id": "M08",
+   "medida": "Hidratación intravenosa forzada para «empujar» el cálculo",
+   "categoria": "bajo_valor",
+   "justificacion": "No hay evidencia de que acelere la expulsión del cálculo."
+  },
+  {
+   "id": "M09",
+   "medida": "Antibiótico empírico sin evidencia de infección",
+   "categoria": "bajo_valor",
+   "justificacion": "No hay fiebre, piuria ni nitritos: el antibiótico no tiene indicación y favorece resistencias."
+  },
+  {
+   "id": "M10",
+   "medida": "Cirugía urgente inmediata para extraer el cálculo de 5 mm",
+   "categoria": "peligrosa",
+   "justificacion": "Expone a riesgos (lesión ureteral, infección) sin beneficio en un cálculo pequeño con dolor controlable."
+  }
+ ],
+ "trampas": [
+  {
+   "error": "No hacer examen de orina ni estudio de imagen",
+   "gravedad": "grave",
+   "condicion": "No se piden P01 ni P02"
+  },
+  {
+   "error": "No tomar las constantes vitales ni buscar fiebre",
+   "gravedad": "grave",
+   "condicion": "No se miden las constantes"
+  },
+  {
+   "error": "Dar el alta sin explicar los signos de alarma ni el control con urología",
+   "gravedad": "grave",
+   "condicion": "No se elige M03"
+  },
+  {
+   "error": "No explorar los testículos en un dolor que se irradia al testículo",
+   "gravedad": "leve",
+   "condicion": "No se abre la región Genitales y región inguinal"
+  },
+  {
+   "error": "Pedir urografía o cistoscopia en vez de ecografía o tomografía",
+   "gravedad": "leve",
+   "condicion": "Se piden P06 o P07"
+  },
+  {
+   "error": "No preguntar por la fiebre ni por las molestias urinarias",
+   "gravedad": "leve",
+   "condicion": "No se hacen A06 ni A08"
+  }
+ ],
+ "razonamiento": {
+  "sintomas_a_hipotesis": "Un dolor lumbar de inicio brusco, intenso, en oleadas, que se irradia a la ingle y el testículo y con un paciente que no encuentra postura, orienta a un dolor cólico de la vía urinaria. Hay que descartar causas graves: infección con obstrucción, aneurisma, apendicitis y torsión.",
+  "pruebas_a_diagnostico": "La hematuria y la hidronefrosis unilateral en la ecografía confirman la obstrucción de la vía urinaria. La tomografía sin contraste precisa el tamaño y el sitio del cálculo. La ausencia de fiebre, de piuria y de deterioro de la función renal indica un cólico no complicado.",
+  "manejo": "Analgesia con AINE, antiemético si hace falta, descartar complicaciones y alta con signos de alarma y control con urología."
+ },
+ "finales": {
+  "bien": "El dolor cede con el AINE y el paciente se va a casa con signos de alarma. Expulsa el cálculo a los cuatro días y en el control de urología se pauta prevención con más líquidos.",
+  "tarde": "Se le da paracetamol y el alta sin estudios. Vuelve a las 24 horas con fiebre y escalofríos por una obstrucción infectada y debe ser ingresado.",
+  "mal": "Se opera de urgencia por un cálculo de 5 mm sin criterios. Sale con una lesión ureteral y pasa varios días hospitalizado por algo que habría salido solo."
+ },
+ "objetivos": [
+  "Reconocer el dolor cólico renal y su diferencia con el dolor de la peritonitis.",
+  "Pedir los estudios adecuados (orina e imagen) y descartar la complicación que obliga a derivar.",
+  "Tratar el dolor con AINE y dar el alta con signos de alarma."
+ ],
+ "para_recordar": [
+  "Quien no encuentra postura tiene un dolor cólico; quien no se mueve, una peritonitis.",
+  "Cólico renal más fiebre es una urgencia urológica: obstrucción infectada.",
+  "Los AINE son el analgésico de primera línea del cólico renal."
+ ],
+ "reto": {
+  "pregunta": "Varón de 35 años con dolor lumbar derecho en oleadas irradiado a la ingle, inquieto, afebril, con hematuria y ecografía con hidronefrosis leve. ¿Cuál es el tratamiento inicial de elección?",
+  "opciones": [
+   "Antibiótico intravenoso y hospitalización",
+   "Un AINE para el dolor y control con urología",
+   "Cirugía urgente para extraer el cálculo",
+   "Hidratación intravenosa forzada sin analgésico"
+  ],
+  "correcta": 1,
+  "explicacion": "En un cólico renal no complicado el AINE es el analgésico de primera línea. El antibiótico y la cirugía no tienen indicación sin infección ni complicación, y la hidratación forzada no acelera la expulsión."
+ },
+ "bibliografia": [
+  {
+   "fuente": "Bickley L. Bates' Guide to Physical Examination and History Taking, 13.ª ed.",
+   "nota": "Capítulos de abdomen y del sistema urinario: técnica de la puñopercusión lumbar (verificar número de capítulo)."
+  },
+  {
+   "fuente": "McGee S. Evidence-Based Physical Diagnosis, 4.ª ed.",
+   "nota": "Capítulo de dolor abdominal: valor de la inquietud y de la puñopercusión (verificar capítulo y cifras)."
+  },
+  {
+   "fuente": "Harrison. Principios de Medicina Interna, 21.ª ed.",
+   "nota": "Capítulo de nefrolitiasis (verificar número)."
+  },
+  {
+   "fuente": "Guía de la European Association of Urology (EAU) sobre urolitiasis, edición vigente",
+   "nota": "Analgesia, imagen, indicación de derivación y terapia expulsiva (verificar recomendaciones y año)."
+  }
+ ],
+ "pendiente_verificar": [
+  "Dosis del diclofenaco en cólico renal",
+  "Recomendación vigente sobre la tamsulosina como terapia expulsiva",
+  "Sensibilidad de la puñopercusión lumbar y de la inquietud (McGee)",
+  "Números de capítulo de Bates, McGee y Harrison, y año de la guía EAU"
+ ]
+}

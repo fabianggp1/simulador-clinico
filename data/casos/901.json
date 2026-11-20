@@ -1,0 +1,698 @@
+{
+ "version": 1,
+ "id": "901",
+ "borrador_revision_clinica": true,
+ "motivo": "El corazón me late rapidísimo y me siento a punto de desmayarme",
+ "especialidad": "Cardiología",
+ "nivel": "Intermedio",
+ "minutos_estimados": 12,
+ "modo": "urgente",
+ "paciente": {
+  "nombre": "Ramón",
+  "sexo": "M",
+  "edad": 62,
+  "ocupacion": "Taxista",
+  "descripcion_imagen": "Ilustración realista de un hombre peruano de 62 años, complexión media, canas en las sienes, sentado en una camilla de emergencia, muy pálido y sudoroso, con una mano apoyada en el pecho y la otra agarrada al borde de la camilla, mirada asustada, camisa celeste desabotonada. Plano hasta las rodillas, fondo neutro de box hospitalario, luz fría, sin texto ni monitores dibujados."
+ },
+ "escenario": {
+  "lugar": "Emergencia de un hospital de EsSalud, Lima",
+  "momento": "Lunes, 14:20",
+  "triaje": "Varón de 62 años con palpitaciones intensas y mareo de una hora. Prioridad I.",
+  "al_entrar": "Lo traen en silla de ruedas desde la puerta. Está pálido, sudoroso y habla entrecortado. Dice que se siente a punto de desmayarse."
+ },
+ "diagnostico": {
+  "principal": "Taquicardia ventricular monomórfica sostenida con inestabilidad hemodinámica (sobre cicatriz de infarto previo)",
+  "terminos_aceptados": [
+   "taquicardia ventricular",
+   "TV",
+   "TV monomórfica",
+   "TV sostenida",
+   "taquicardia ventricular monomórfica",
+   "taquicardia ventricular inestable",
+   "taquicardia de complejo ancho inestable",
+   "TV con pulso"
+  ],
+  "cie10": "I47.2"
+ },
+ "anamnesis": [
+  {
+   "grupo": "Lo que siente",
+   "preguntas": [
+    {
+     "id": "A01",
+     "pregunta": "¿Qué le pasa?",
+     "respuesta": "Desde hace una hora el corazón me late rapidísimo, como un tambor. Me siento mareado y sin fuerzas.",
+     "relevancia": "util",
+     "dato": "Palpitaciones rápidas desde hace 1 h, mareo y debilidad"
+    },
+    {
+     "id": "A02",
+     "pregunta": "¿Cómo empezó?",
+     "respuesta": "De golpe. Estaba sentado en el taxi esperando pasajeros y de pronto empezó. Antes no tenía nada.",
+     "relevancia": "clave",
+     "dato": "Inicio brusco en reposo"
+    },
+    {
+     "id": "A03",
+     "pregunta": "¿Tiene dolor en el pecho?",
+     "respuesta": "Una opresión leve desde que empezó. No es una puñalada.",
+     "relevancia": "util",
+     "dato": "Opresión torácica leve"
+    },
+    {
+     "id": "A04",
+     "pregunta": "¿Se ha desmayado o ha estado a punto?",
+     "respuesta": "No me he desmayado, pero veo borroso cuando me paro y me sudan las manos. Siento que me voy.",
+     "relevancia": "clave",
+     "dato": "Presíncope y sudoración fría, sin pérdida de conciencia"
+    },
+    {
+     "id": "A05",
+     "pregunta": "¿Le falta el aire?",
+     "respuesta": "Sí, me cuesta respirar, como si el aire no me alcanzara.",
+     "relevancia": "util",
+     "dato": "Disnea"
+    }
+   ]
+  },
+  {
+   "grupo": "El corazón",
+   "preguntas": [
+    {
+     "id": "A06",
+     "pregunta": "¿Ha tenido problemas del corazón antes?",
+     "respuesta": "Hace cinco años tuve un infarto y me pusieron dos stents. Tomo mis pastillas, aunque a veces se me olvidan.",
+     "relevancia": "clave",
+     "dato": "Infarto previo con 2 stents hace 5 años; adherencia irregular"
+    },
+    {
+     "id": "A07",
+     "pregunta": "¿Qué medicinas toma?",
+     "respuesta": "Aspirina, una pastilla para el colesterol y otra para el corazón. No me acuerdo de los nombres. Ayer sí las tomé.",
+     "relevancia": "util",
+     "dato": "Antiagregante, estatina y otro fármaco cardiaco (nombre no recuerda)"
+    },
+    {
+     "id": "A08",
+     "pregunta": "¿Le han dicho que su corazón bombea menos o está débil?",
+     "respuesta": "En la última ecografía del año pasado me dijeron que bombeaba un poco menos de lo normal. Después no volví al control.",
+     "relevancia": "clave",
+     "dato": "Disfunción ventricular referida, sin control reciente"
+    },
+    {
+     "id": "A09",
+     "pregunta": "¿Había tenido algún episodio parecido?",
+     "respuesta": "Hace un año sentí algo así, pero me duró como un minuto y se pasó solo.",
+     "relevancia": "util",
+     "dato": "Un episodio breve similar hace 1 año"
+    }
+   ]
+  },
+  {
+   "grupo": "Otros antecedentes",
+   "preguntas": [
+    {
+     "id": "A10",
+     "pregunta": "¿Tiene presión alta, azúcar alta u otra enfermedad?",
+     "respuesta": "Presión alta, sí. Azúcar normal. Nada más.",
+     "relevancia": "util",
+     "dato": "HTA; sin diabetes"
+    },
+    {
+     "id": "A11",
+     "pregunta": "¿Es alérgico a algún medicamento?",
+     "respuesta": "No, a ninguno.",
+     "relevancia": "util",
+     "dato": "Sin alergias medicamentosas"
+    }
+   ]
+  },
+  {
+   "grupo": "Posibles desencadenantes",
+   "preguntas": [
+    {
+     "id": "A12",
+     "pregunta": "¿Ha tomado café, energizantes, alcohol o alguna droga, o empezó una medicina nueva?",
+     "respuesta": "Un café en la mañana, nada más. Drogas no. Medicinas nuevas tampoco.",
+     "relevancia": "ruido",
+     "dato": "Sin estimulantes ni fármacos nuevos"
+    },
+    {
+     "id": "A13",
+     "pregunta": "¿Ha tenido diarrea, vómitos o ha comido y bebido poco estos días?",
+     "respuesta": "No, he comido normal.",
+     "relevancia": "util",
+     "dato": "Sin pérdidas de líquidos ni mala ingesta"
+    }
+   ]
+  },
+  {
+   "grupo": "Hábitos",
+   "preguntas": [
+    {
+     "id": "A14",
+     "pregunta": "¿Fuma?",
+     "respuesta": "Dejé hace cinco años. Antes fumaba una cajetilla al día desde joven.",
+     "relevancia": "ruido",
+     "dato": "Exfumador"
+    }
+   ]
+  }
+ ],
+ "exploracion": {
+  "constantes": {
+   "TA": "78/50",
+   "FC": 170,
+   "FR": 24,
+   "SatO2": 94,
+   "T": 36.5
+  },
+  "regiones": [
+   {
+    "region": "Aspecto general",
+    "hallazgo": "Pálido, sudoroso, ansioso. Consciente y orientado. Habla en frases cortas.",
+    "clave": false,
+    "valor_semiologico": "Palidez y sudoración fría con hipotensión sugieren mala perfusión: el cuadro es inestable."
+   },
+   {
+    "region": "Cabeza y cuello",
+    "hallazgo": "Venas yugulares con ondas prominentes e irregulares que aparecen de forma intermitente (ondas «a» en cañón). Sin ingurgitación yugular sostenida.",
+    "clave": true,
+    "valor_semiologico": "Las ondas «a» en cañón indican que la aurícula se contrae contra una válvula tricúspide cerrada, como ocurre cuando aurículas y ventrículos laten de forma independiente (disociación AV). Apoya un origen ventricular de la taquicardia. Verificar su peso en McGee 4.ª ed."
+   },
+   {
+    "region": "Tórax y pulmones",
+    "hallazgo": "Crepitantes finos leves en las bases, sin sibilancias.",
+    "clave": false,
+    "valor_semiologico": "Congestión pulmonar incipiente: una taquicardia mantenida sobre un corazón con función disminuida puede causar insuficiencia cardiaca."
+   },
+   {
+    "region": "Corazón",
+    "hallazgo": "Taquicárdico y regular. El primer ruido varía de intensidad de un latido a otro. Sin soplos ni roces.",
+    "clave": false,
+    "valor_semiologico": "La intensidad variable del primer ruido también sugiere disociación AV. Verificar su peso en McGee 4.ª ed."
+   },
+   {
+    "region": "Abdomen",
+    "hallazgo": "Blando, depresible, indoloro. Sin masas ni soplos.",
+    "clave": false,
+    "valor_semiologico": "Sin hallazgos relevantes para este caso."
+   },
+   {
+    "region": "Extremidades y piel",
+    "hallazgo": "Manos y pies fríos y sudorosos. Sin edemas ni signos de trombosis venosa.",
+    "clave": false,
+    "valor_semiologico": "Extremidades frías indican vasoconstricción por bajo gasto. Sin edemas, la congestión no es avanzada."
+   },
+   {
+    "region": "Neurológico",
+    "hallazgo": "Consciente, orientado, lenguaje fluido, sin focalidad. Algo somnoliento.",
+    "clave": false,
+    "valor_semiologico": "La somnolencia leve es un signo de hipoperfusión cerebral; sin focalidad no hay datos de ictus."
+   },
+   {
+    "region": "Pulso y perfusión (maniobra)",
+    "hallazgo": "Pulso radial presente, filiforme, rapidísimo y regular. Llenado capilar de unos 4 segundos.",
+    "clave": true,
+    "valor_semiologico": "Hay pulso: es una taquicardia con pulso y no una parada. La hipotensión, la mala perfusión y el presíncope definen la inestabilidad y marcan la urgencia de la cardioversión eléctrica."
+   }
+  ]
+ },
+ "monitor": {
+  "ritmo": "taquicardia_ventricular",
+  "fc": 170,
+  "spo2": 94,
+  "ta": "78/50",
+  "fr": 24,
+  "temp": 36.5
+ },
+ "hipotesis": [
+  {
+   "nombre": "Taquicardia ventricular monomórfica sostenida",
+   "rol": "principal",
+   "a_favor": "Complejo ancho regular, infarto previo con cicatriz, función ventricular disminuida, inicio brusco, ondas «a» en cañón y primer ruido variable.",
+   "en_contra": "Nada relevante."
+  },
+  {
+   "nombre": "Taquicardia supraventricular con conducción aberrante",
+   "rol": "plausible",
+   "a_favor": "Complejo ancho regular también puede ser supraventricular con bloqueo de rama.",
+   "en_contra": "Antecedente de infarto con cicatriz y signos de disociación AV: ante un complejo ancho en un cardiópata se asume origen ventricular."
+  },
+  {
+   "nombre": "Fibrilación auricular con conducción por vía accesoria",
+   "rol": "plausible",
+   "a_favor": "Taquicardia de complejo ancho con inicio brusco.",
+   "en_contra": "El ritmo es regular, no irregular, y no hay antecedente de preexcitación."
+  },
+  {
+   "nombre": "Síndrome coronario agudo con arritmia",
+   "rol": "no_dejar_escapar",
+   "a_favor": "Cardiopatía isquémica previa y opresión torácica.",
+   "en_contra": "Dolor leve y no progresivo; la arritmia se explica por la cicatriz. Debe descartarse una vez estabilizado."
+  },
+  {
+   "nombre": "Trastorno hidroelectrolítico (potasio o magnesio bajos)",
+   "rol": "no_dejar_escapar",
+   "a_favor": "Pueden desencadenar arritmias ventriculares.",
+   "en_contra": "No hay diarrea, vómitos ni diuréticos nuevos. Se confirma con laboratorio sin retrasar el tratamiento."
+  },
+  {
+   "nombre": "Tromboembolia pulmonar",
+   "rol": "distractor",
+   "a_favor": "Disnea y taquicardia.",
+   "en_contra": "Sin factores de riesgo ni signos de trombosis; no explica un ritmo de complejo ancho."
+  },
+  {
+   "nombre": "Crisis de ansiedad",
+   "rol": "distractor",
+   "a_favor": "Palpitaciones y sensación de muerte inminente.",
+   "en_contra": "Hipotensión, palidez fría y ritmo de complejo ancho no se explican por ansiedad."
+  }
+ ],
+ "pruebas": [
+  {
+   "id": "P01",
+   "nombre": "ECG de 12 derivaciones",
+   "minutos": 3,
+   "valor": "razonable",
+   "resultado": "Taquicardia regular de complejo ancho (QRS de unos 160 ms) a 170 lpm, con la misma morfología en todos los latidos. No se identifican ondas P con claridad.",
+   "imagen": "ECG de 12 derivaciones con taquicardia regular de complejos anchos y morfología idéntica latido a latido, sin ondas P visibles.",
+   "interpretacion": "Una taquicardia regular de complejo ancho en un paciente con cicatriz de infarto es taquicardia ventricular mientras no se demuestre lo contrario. No debe retrasar la cardioversión en un paciente inestable."
+  },
+  {
+   "id": "P02",
+   "nombre": "Glucosa capilar",
+   "minutos": 1,
+   "valor": "razonable",
+   "resultado": "98 mg/dL (referencia 70-110).",
+   "imagen": null,
+   "interpretacion": "Normal. Descarta una causa metabólica rápida de alteración de la conciencia."
+  },
+  {
+   "id": "P03",
+   "nombre": "Gasometría arterial con electrolitos (potasio y magnesio)",
+   "minutos": 10,
+   "valor": "razonable",
+   "resultado": "pH 7,36; lactato 3,1 mmol/L (referencia <2); potasio 3,9 mEq/L (referencia 3,5-5,0); magnesio 1,9 mg/dL (referencia 1,6-2,6).",
+   "imagen": null,
+   "interpretacion": "El lactato elevado refleja la mala perfusión. Potasio y magnesio normales: no hay un desencadenante electrolítico evidente."
+  },
+  {
+   "id": "P04",
+   "nombre": "Troponina de alta sensibilidad",
+   "minutos": 60,
+   "valor": "razonable",
+   "resultado": "22 ng/L (referencia <14). Se repetirá a las 3 horas.",
+   "imagen": null,
+   "interpretacion": "Elevación discreta, esperable tras una taquicardia sostenida con hipotensión. Hace falta la curva seriada para descartar infarto."
+  },
+  {
+   "id": "P05",
+   "nombre": "Radiografía de tórax portátil",
+   "minutos": 15,
+   "valor": "razonable",
+   "resultado": "Cardiomegalia leve. Redistribución vascular discreta hacia los vértices.",
+   "imagen": "Radiografía de tórax AP portátil con silueta cardiaca levemente aumentada y redistribución vascular discreta; sin neumotórax ni derrame.",
+   "interpretacion": "Congestión incipiente. Útil tras estabilizar al paciente, no antes."
+  },
+  {
+   "id": "P06",
+   "nombre": "Ecocardiograma a pie de cama",
+   "minutos": 20,
+   "valor": "razonable",
+   "resultado": "Ventrículo izquierdo dilatado, con hipocinesia de la pared inferior y fracción de eyección visiblemente disminuida. Sin derrame pericárdico.",
+   "imagen": "Ecocardiograma con ventrículo izquierdo dilatado y pared inferior adelgazada e hipocinética.",
+   "interpretacion": "Hay una cicatriz que puede alimentar un circuito de reentrada ventricular. Sin derrame, no hay taponamiento."
+  },
+  {
+   "id": "P07",
+   "nombre": "Dímero D",
+   "minutos": 40,
+   "valor": "bajo_valor",
+   "resultado": "420 ng/mL (referencia <500).",
+   "imagen": null,
+   "interpretacion": "No aporta: la tromboembolia pulmonar no explica un ritmo de complejo ancho."
+  },
+  {
+   "id": "P08",
+   "nombre": "Coronariografía urgente antes de controlar el ritmo",
+   "minutos": 90,
+   "valor": "peligrosa",
+   "resultado": "El paciente se deteriora durante el traslado a hemodinamia y vuelve a la sala sin completar el estudio.",
+   "imagen": null,
+   "interpretacion": "Trasladar a un paciente inestable sin controlar la arritmia es peligroso. Primero se cardiovierte; la isquemia se estudia después."
+  }
+ ],
+ "plan": [
+  {
+   "id": "M01",
+   "medida": "Cardioversión eléctrica sincronizada inmediata, con sedación breve porque está consciente",
+   "categoria": "imprescindible",
+   "justificacion": "Una taquicardia con pulso e inestabilidad (hipotensión, mala perfusión, presíncope) se trata con cardioversión eléctrica, no con fármacos."
+  },
+  {
+   "id": "M02",
+   "medida": "Amiodarona IV tras la cardioversión para prevenir la recurrencia (150 mg en 10 minutos y luego infusión)",
+   "categoria": "imprescindible",
+   "justificacion": "La taquicardia ventricular sobre cicatriz tiende a recurrir. Verificar dosis en la guía AHA 2020."
+  },
+  {
+   "id": "M03",
+   "medida": "Ingreso a una unidad con monitorización continua (cuidados intermedios o coronarios)",
+   "categoria": "imprescindible",
+   "justificacion": "Paciente de alto riesgo de recurrencia y de muerte súbita; requiere vigilancia continua."
+  },
+  {
+   "id": "M04",
+   "medida": "ECG de 12 derivaciones en ritmo sinusal tras la cardioversión",
+   "categoria": "razonable",
+   "justificacion": "Permite buscar isquemia y comparar con el ECG basal."
+  },
+  {
+   "id": "M05",
+   "medida": "Corregir potasio y magnesio si están bajos y seguir la troponina seriada",
+   "categoria": "razonable",
+   "justificacion": "Los trastornos electrolíticos favorecen arritmias ventriculares; la curva de troponina descarta un infarto agudo como desencadenante."
+  },
+  {
+   "id": "M06",
+   "medida": "Ecocardiograma y estudio de isquemia (coronariografía programada) una vez estable",
+   "categoria": "razonable",
+   "justificacion": "Define la cicatriz, la función ventricular y la necesidad de revascularización."
+  },
+  {
+   "id": "M07",
+   "medida": "Interconsulta a cardiología y electrofisiología para valorar cardiodesfibrilador implantable y ablación",
+   "categoria": "razonable",
+   "justificacion": "Tras una taquicardia ventricular sostenida con cardiopatía estructural se evalúa la prevención de muerte súbita."
+  },
+  {
+   "id": "M08",
+   "medida": "Verapamilo o diltiazem IV para «bajar la frecuencia»",
+   "categoria": "peligrosa",
+   "justificacion": "En una taquicardia de complejo ancho de origen ventricular pueden provocar colapso hemodinámico."
+  },
+  {
+   "id": "M09",
+   "medida": "Alta con control ambulatorio",
+   "categoria": "bajo_valor",
+   "justificacion": "Tras una taquicardia ventricular sostenida con cardiopatía estructural el alta inmediata es insegura."
+  }
+ ],
+ "trampas": [
+  {
+   "error": "Tratar como taquicardia supraventricular con verapamilo o diltiazem",
+   "gravedad": "critico",
+   "condicion": "Se elige T08"
+  },
+  {
+   "error": "Retrasar la cardioversión pidiendo pruebas o esperando",
+   "gravedad": "grave",
+   "condicion": "No se aplica T04 antes de la primera ronda"
+  },
+  {
+   "error": "Llevar al paciente inestable a estudios largos antes de controlar el ritmo",
+   "gravedad": "grave",
+   "condicion": "Se pide P08"
+  },
+  {
+   "error": "No tomar las constantes vitales ni confirmar que hay pulso",
+   "gravedad": "grave",
+   "condicion": "No se mide ni se explora Pulso y perfusión"
+  },
+  {
+   "error": "Usar adenosina en un paciente inestable en vez de cardiovertir",
+   "gravedad": "grave",
+   "condicion": "Se elige T07"
+  },
+  {
+   "error": "No preguntar por el infarto previo, dato clave para el origen ventricular",
+   "gravedad": "leve",
+   "condicion": "No se hace A06"
+  },
+  {
+   "error": "Cardiovertir y no dar tratamiento para evitar la recurrencia",
+   "gravedad": "leve",
+   "condicion": "No se aplica T05"
+  }
+ ],
+ "razonamiento": {
+  "sintomas_a_hipotesis": "Palpitaciones de inicio brusco con presíncope en un paciente con infarto previo y función ventricular disminuida orientan a una arritmia ventricular. La hipotensión y la mala perfusión indican que es inestable.",
+  "pruebas_a_diagnostico": "El monitor muestra una taquicardia regular de complejo ancho. En un cardiópata se asume origen ventricular. Las ondas «a» en cañón y el primer ruido variable apoyan la disociación AV. El pulso presente separa esta taquicardia de una parada.",
+  "manejo": "Taquicardia con pulso e inestabilidad: cardioversión eléctrica sincronizada inmediata, con sedación breve si está consciente. Después, antiarrítmico para prevenir la recurrencia, corrección de electrolitos y estudio de la causa."
+ },
+ "finales": {
+  "bien": "La descarga sincronizada restablece el ritmo sinusal en pocos minutos. El paciente ingresa a cuidados intermedios y se programa el estudio de la cicatriz y la valoración de un cardiodesfibrilador.",
+  "tarde": "Se cardiovierte con retraso. La presión baja más y el paciente queda somnoliento antes de recuperarse. Evoluciona bien, pero con más riesgo de complicaciones.",
+  "mal": "Se administra verapamilo creyendo que es supraventricular. La presión se desploma, la taquicardia degenera y el paciente requiere reanimación avanzada."
+ },
+ "objetivos": [
+  "Reconocer una taquicardia de complejo ancho y asumir origen ventricular en un paciente con cardiopatía isquémica.",
+  "Distinguir taquicardia estable de inestable y elegir cardioversión eléctrica sincronizada cuando hay inestabilidad.",
+  "Evitar fármacos que empeoran el cuadro, como el verapamilo, y planificar la prevención de recurrencias."
+ ],
+ "para_recordar": [
+  "Taquicardia de complejo ancho: se trata como ventricular mientras no se demuestre lo contrario.",
+  "Inestable con pulso: cardioversión eléctrica sincronizada, sin retrasos.",
+  "Verapamilo y diltiazem no se usan en taquicardia de complejo ancho."
+ ],
+ "reto": {
+  "pregunta": "Varón de 62 años con infarto previo, TA 78/50, mareo y sudoración fría. El monitor muestra una taquicardia regular de complejo ancho a 170 lpm y tiene pulso radial. ¿Cuál es la conducta inicial?",
+  "opciones": [
+   "Verapamilo IV en bolo",
+   "Adenosina repetida hasta que cambie el ritmo",
+   "Cardioversión eléctrica sincronizada con sedación breve",
+   "Observar 30 minutos con monitorización y repetir el ECG"
+  ],
+  "correcta": 2,
+  "explicacion": "Hay inestabilidad (hipotensión y mala perfusión) con pulso: corresponde cardioversión eléctrica sincronizada inmediata. El verapamilo puede causar colapso, la adenosina retrasa lo urgente y esperar deja al paciente expuesto a un deterioro mayor."
+ },
+ "bibliografia": [
+  {
+   "fuente": "Bickley L. Bates' Guide to Physical Examination and History Taking, 13.ª ed.",
+   "nota": "Capítulo cardiovascular: pulso venoso yugular y ruidos cardiacos (verificar número de capítulo)."
+  },
+  {
+   "fuente": "McGee S. Evidence-Based Physical Diagnosis, 4.ª ed.",
+   "nota": "Capítulo de palpitaciones y de pulso venoso yugular: valor de las ondas «a» en cañón y del primer ruido variable (verificar capítulo y cifras)."
+  },
+  {
+   "fuente": "Harrison. Principios de Medicina Interna, 21.ª ed.",
+   "nota": "Capítulo de taquiarritmias (verificar número)."
+  },
+  {
+   "fuente": "Panchal AR y cols. Part 3: Adult Basic and Advanced Life Support. 2020 AHA Guidelines for CPR and ECC. Circulation 2020;142(suppl 2)",
+   "nota": "Algoritmo de taquicardia con pulso (verificar páginas)."
+  },
+  {
+   "fuente": "Zeppenfeld K y cols. 2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022",
+   "nota": "Manejo de la taquicardia ventricular monomórfica sostenida (verificar páginas)."
+  }
+ ],
+ "pendiente_verificar": [
+  "Energía inicial de la cardioversión sincronizada para taquicardia ventricular monomórfica (100 J bifásica según AHA 2020)",
+  "Dosis de amiodarona IV (150 mg en 10 minutos y luego infusión)",
+  "Sensibilidad del primer ruido variable y de las ondas «a» en cañón para disociación AV (McGee)",
+  "Números de capítulo y páginas de Bates, McGee, Harrison y las guías"
+ ],
+ "urgente": {
+  "fases": [
+   {
+    "id": "llegada",
+    "minuto": 0,
+    "narrativa": "Hombre de 62 años, sentado en la camilla, pálido y sudoroso, con la mano en el pecho. Dice que el corazón le late muy rápido desde hace una hora y que se siente a punto de desmayarse. Habla entrecortado.",
+    "monitor": {
+     "ritmo": "taquicardia_ventricular",
+     "fc": 170,
+     "spo2": 94,
+     "ta": "78/50",
+     "fr": 24,
+     "temp": 36.5
+    }
+   },
+   {
+    "id": "ronda1",
+    "minuto": 6,
+    "requiere_para_bien": [
+     "T01",
+     "T04"
+    ],
+    "narrativa_bien": "Tras la descarga sincronizada el trazado cambia: desaparece la taquicardia y aparece un ritmo regular de complejo estrecho. El paciente dice que siente alivio y está despierto y colaborador.",
+    "monitor_bien": {
+     "ritmo": "sinusal",
+     "fc": 88,
+     "spo2": 97,
+     "ta": "112/70",
+     "fr": 18,
+     "temp": 36.5
+    },
+    "narrativa_mal": "El paciente empeora: está más pálido y frío, se adormece y responde con dificultad. La taquicardia continúa y la presión sigue bajando.",
+    "monitor_mal": {
+     "ritmo": "taquicardia_ventricular",
+     "fc": 176,
+     "spo2": 88,
+     "ta": "66/40",
+     "fr": 28,
+     "temp": 36.5
+    }
+   },
+   {
+    "id": "ronda2",
+    "minuto": 12,
+    "requiere_para_bien": [
+     "T04",
+     "T05"
+    ],
+    "narrativa_bien": "Está tranquilo, sin palpitaciones, y el ritmo se mantiene regular. Se prepara su traslado a una unidad con monitorización continua.",
+    "monitor_bien": {
+     "ritmo": "sinusal",
+     "fc": 80,
+     "spo2": 98,
+     "ta": "118/74",
+     "fr": 16,
+     "temp": 36.5
+    },
+    "narrativa_mal": "La taquicardia persiste o reaparece, con la presión otra vez baja y el paciente casi sin responder.",
+    "monitor_mal": {
+     "ritmo": "taquicardia_ventricular",
+     "fc": 180,
+     "spo2": 86,
+     "ta": "60/38",
+     "fr": 30,
+     "temp": 36.5
+    }
+   }
+  ],
+  "tratar": [
+   {
+    "id": "T01",
+    "nombre": "Colocar parches del desfibrilador y obtener un acceso venoso",
+    "minutos": 1,
+    "valor": "imprescindible",
+    "fases": [
+     "llegada",
+     "ronda1"
+    ],
+    "efecto": "El monitor-desfibrilador queda conectado al paciente y listo para la descarga.",
+    "reevaluar_antes_de_repetir": false
+   },
+   {
+    "id": "T02",
+    "nombre": "Oxígeno suplementario con mascarilla",
+    "minutos": 1,
+    "valor": "razonable",
+    "fases": [
+     "llegada",
+     "ronda1"
+    ],
+    "efecto": "Mejora algo la saturación mientras se prepara el tratamiento definitivo.",
+    "reevaluar_antes_de_repetir": false
+   },
+   {
+    "id": "T03",
+    "nombre": "Sedación IV breve con un fármaco de acción corta",
+    "minutos": 1,
+    "valor": "razonable",
+    "fases": [
+     "llegada",
+     "ronda1"
+    ],
+    "efecto": "El paciente consciente queda somnoliento y tolerará mejor la descarga.",
+    "reevaluar_antes_de_repetir": false
+   },
+   {
+    "id": "T04",
+    "nombre": "Cardioversión eléctrica sincronizada (modo sincronizado activado, energía inicial según el protocolo del equipo)",
+    "minutos": 2,
+    "valor": "imprescindible",
+    "fases": [
+     "llegada",
+     "ronda1"
+    ],
+    "efecto": "La descarga sincronizada interrumpe la taquicardia y recupera un ritmo regular.",
+    "reevaluar_antes_de_repetir": true
+   },
+   {
+    "id": "T05",
+    "nombre": "Amiodarona IV tras la cardioversión (150 mg en 10 minutos y luego infusión)",
+    "minutos": 2,
+    "valor": "imprescindible",
+    "fases": [
+     "ronda1",
+     "ronda2"
+    ],
+    "efecto": "Reduce el riesgo de que la taquicardia ventricular vuelva a aparecer.",
+    "reevaluar_antes_de_repetir": false
+   },
+   {
+    "id": "T06",
+    "nombre": "Reposición de potasio y magnesio por vía IV sin conocer los niveles",
+    "minutos": 3,
+    "valor": "condicional",
+    "fases": [
+     "llegada",
+     "ronda1",
+     "ronda2"
+    ],
+    "efecto": "No corrige la arritmia. Se justifica solo si el laboratorio muestra niveles bajos.",
+    "reevaluar_antes_de_repetir": true
+   },
+   {
+    "id": "T07",
+    "nombre": "Adenosina 6 mg en bolo rápido",
+    "minutos": 2,
+    "valor": "bajo_valor",
+    "fases": [
+     "llegada",
+     "ronda1"
+    ],
+    "efecto": "En general no termina una taquicardia ventricular y retrasa la cardioversión.",
+    "reevaluar_antes_de_repetir": true
+   },
+   {
+    "id": "T08",
+    "nombre": "Verapamilo IV en bolo",
+    "minutos": 2,
+    "valor": "peligrosa",
+    "fases": [
+     "llegada",
+     "ronda1"
+    ],
+    "efecto": "La presión cae aún más: el verapamilo es peligroso en una taquicardia de complejo ancho de origen ventricular.",
+    "reevaluar_antes_de_repetir": false
+   },
+   {
+    "id": "T09",
+    "nombre": "Observar con monitorización y repetir el ECG antes de decidir",
+    "minutos": 5,
+    "valor": "peligrosa",
+    "fases": [
+     "llegada"
+    ],
+    "efecto": "Pasan 5 minutos sin tratamiento y el paciente se deteriora.",
+    "reevaluar_antes_de_repetir": false
+   }
+  ],
+  "deterioro": [
+   {
+    "condicion": "No se aplica T04 antes de la ronda 1 (minuto 6)",
+    "consecuencia": "Hipotensión progresiva, riesgo de degeneración a fibrilación ventricular y de parada."
+   },
+   {
+    "condicion": "Se elige T08 en la llegada",
+    "consecuencia": "Colapso hemodinámico: el verapamilo agrava la inestabilidad y precipita la parada."
+   },
+   {
+    "condicion": "Se elige T09 o T07 en la llegada",
+    "consecuencia": "Se pierden minutos sin tratamiento eficaz y el paciente se deteriora."
+   }
+  ],
+  "fin": {
+   "minuto": 20,
+   "estable_si": "T04 y T05 aplicados",
+   "mensaje_estable": "Paciente estable en ritmo regular, con monitorización continua y listo para ingresar a cuidados intermedios.",
+   "mensaje_inestable": "El paciente no se ha estabilizado: la taquicardia persiste y requiere reanimación avanzada."
+  }
+ }
+}

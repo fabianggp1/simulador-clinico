@@ -1,0 +1,526 @@
+{
+ "version": 1,
+ "id": "083",
+ "motivo": "Dolor en el pecho que mejora al inclinarse hacia delante",
+ "especialidad": "Cardiología",
+ "nivel": "Básico",
+ "minutos_estimados": 12,
+ "modo": "clasico",
+ "paciente": {
+  "nombre": "Diego",
+  "sexo": "M",
+  "edad": 24,
+  "ocupacion": "Estudiante de ingeniería",
+  "descripcion_imagen": "Ilustración realista de un hombre latino de 24 años, delgado y atlético, pelo negro corto, sentado al borde de una camilla de urgencias, inclinado hacia delante con los antebrazos apoyados en los muslos, camiseta gris, gesto de molestia, una mano sobre el esternón. Plano de cuerpo entero hasta las rodillas, fondo neutro de box hospitalario, luz fría, sin texto ni monitores dibujados."
+ },
+ "escenario": {
+  "lugar": "Emergencia de un hospital general, Lima",
+  "momento": "Viernes, 19:30",
+  "triaje": "Varón de 24 años con dolor torácico de dos días, constantes estables, prioridad media.",
+  "al_entrar": "Llega caminando con un amigo. Prefiere sentarse inclinado hacia delante y respira con cuidado, sin llegar al fondo."
+ },
+ "diagnostico": {
+  "principal": "Pericarditis aguda idiopática (probablemente viral)",
+  "terminos_aceptados": [
+   "pericarditis",
+   "pericarditis aguda",
+   "pericarditis viral",
+   "pericarditis idiopática",
+   "pericarditis aguda viral",
+   "inflamación del pericardio"
+  ],
+  "cie10": "I30.9"
+ },
+ "anamnesis": [
+  {
+   "grupo": "El dolor",
+   "preguntas": [
+    {
+     "id": "A01",
+     "pregunta": "¿Dónde le duele exactamente?",
+     "respuesta": "Detrás del esternón y un poco hacia la izquierda. No lo puedo señalar con un solo dedo.",
+     "relevancia": "util",
+     "dato": "Dolor retroesternal-precordial"
+    },
+    {
+     "id": "A02",
+     "pregunta": "¿Cómo es el dolor?",
+     "respuesta": "Como una puñalada. Es fuerte, un 7 sobre 10. Se agrava cuando respiro hondo o toso.",
+     "relevancia": "clave",
+     "dato": "Dolor pleurítico (empeora al inspirar y toser)"
+    },
+    {
+     "id": "A03",
+     "pregunta": "¿Qué lo mejora o lo empeora?",
+     "respuesta": "Echado boca arriba es insoportable. Sentado e inclinado hacia delante se alivia bastante. Por eso estoy así.",
+     "relevancia": "clave",
+     "dato": "Alivio al inclinarse hacia delante; empeora en decúbito"
+    },
+    {
+     "id": "A04",
+     "pregunta": "¿El dolor se va a otra parte del cuerpo?",
+     "respuesta": "Sí, a veces se me sube hacia el cuello y el hombro izquierdo, por la parte de arriba, hacia el músculo del cuello.",
+     "relevancia": "clave",
+     "dato": "Irradiación a la cresta del trapecio"
+    },
+    {
+     "id": "A05",
+     "pregunta": "¿Aparece al hacer esfuerzo o caminar rápido?",
+     "respuesta": "No, me duele igual en reposo. Ayer mientras estudiaba, sentado, empezó a molestar más.",
+     "relevancia": "clave",
+     "dato": "No relacionado con el esfuerzo"
+    }
+   ]
+  },
+  {
+   "grupo": "Inicio y evolución",
+   "preguntas": [
+    {
+     "id": "A06",
+     "pregunta": "¿Cuándo empezó y cómo fue?",
+     "respuesta": "Hace dos días. Primero una molestia leve y en unas horas se volvió fuerte.",
+     "relevancia": "util",
+     "dato": "Inicio gradual en horas, 2 días de evolución"
+    },
+    {
+     "id": "A07",
+     "pregunta": "¿Estuvo enfermo en los días previos?",
+     "respuesta": "Hace diez días tuve un resfrío con dolor de garganta y fiebre. Ya me había recuperado.",
+     "relevancia": "clave",
+     "dato": "Infección respiratoria viral previa (10 días)"
+    },
+    {
+     "id": "A08",
+     "pregunta": "¿Ha tenido fiebre estos días?",
+     "respuesta": "Ayer sentí calor y escalofríos. Me medí 37,8 en la farmacia.",
+     "relevancia": "util",
+     "dato": "Febrícula (<38 °C)"
+    }
+   ]
+  },
+  {
+   "grupo": "Síntomas acompañantes",
+   "preguntas": [
+    {
+     "id": "A09",
+     "pregunta": "¿Le falta el aire?",
+     "respuesta": "Solo porque no puedo llenar el pecho de aire sin que me duela. Acostado me ahogo más por el dolor.",
+     "relevancia": "util",
+     "dato": "Disnea por limitación dolorosa, sin ortopnea cardiaca"
+    },
+    {
+     "id": "A10",
+     "pregunta": "¿Sudoración fría, náuseas o palpitaciones?",
+     "respuesta": "No, nada de eso.",
+     "relevancia": "util",
+     "dato": "Sin cortejo vegetativo"
+    },
+    {
+     "id": "A11",
+     "pregunta": "¿Tos, flema o sangre al toser?",
+     "respuesta": "Un poco de tos seca. Sin flema ni sangre.",
+     "relevancia": "ruido",
+     "dato": "Tos seca leve"
+    },
+    {
+     "id": "A12",
+     "pregunta": "¿Se ha desmayado o se le hinchan las piernas?",
+     "respuesta": "No, nunca.",
+     "relevancia": "util",
+     "dato": "Sin síncope ni edemas"
+    }
+   ]
+  },
+  {
+   "grupo": "Antecedentes",
+   "preguntas": [
+    {
+     "id": "A13",
+     "pregunta": "¿Tiene alguna enfermedad conocida o toma medicinas?",
+     "respuesta": "Ninguna. Solo paracetamol anoche, no me hizo mucho.",
+     "relevancia": "util",
+     "dato": "Sin comorbilidad; no anticoagulado"
+    },
+    {
+     "id": "A14",
+     "pregunta": "¿Ha tenido operaciones, viajes largos, inmovilización o trombosis?",
+     "respuesta": "No. Estoy en clases y entreno trotando.",
+     "relevancia": "clave",
+     "dato": "Sin factores de riesgo de tromboembolia"
+    },
+    {
+     "id": "A15",
+     "pregunta": "¿Antecedentes de cáncer, tuberculosis o enfermedades autoinmunes como lupus o artritis?",
+     "respuesta": "Ninguno que yo sepa.",
+     "relevancia": "ruido",
+     "dato": "Sin enfermedades sistémicas conocidas"
+    },
+    {
+     "id": "A16",
+     "pregunta": "¿Alguien en su familia ha tenido infarto joven o muerte súbita?",
+     "respuesta": "No. Mi papá tiene la presión alta, nada más.",
+     "relevancia": "util",
+     "dato": "Sin antecedentes familiares de cardiopatía precoz"
+    }
+   ]
+  },
+  {
+   "grupo": "Hábitos y contexto",
+   "preguntas": [
+    {
+     "id": "A17",
+     "pregunta": "¿Fuma, toma alcohol o ha usado cocaína u otras drogas?",
+     "respuesta": "Fumo uno o dos cigarros en reuniones. Alcohol los fines de semana. Drogas, nunca.",
+     "relevancia": "util",
+     "dato": "Tabaco ocasional; niega cocaína"
+    },
+    {
+     "id": "A18",
+     "pregunta": "¿Ha tenido algún golpe en el pecho o hizo un esfuerzo físico muy fuerte?",
+     "respuesta": "Nada. Trote suave, sin golpes.",
+     "relevancia": "util",
+     "dato": "Sin trauma torácico"
+    },
+    {
+     "id": "A19",
+     "pregunta": "¿Qué es lo que más le preocupa?",
+     "respuesta": "Mi amigo dice que podría ser un infarto y me asusté.",
+     "relevancia": "ruido",
+     "dato": "Preocupación por infarto"
+    }
+   ]
+  }
+ ],
+ "exploracion": {
+  "constantes": {
+   "TA": "118/72",
+   "FC": 96,
+   "FR": 18,
+   "SatO2": 98,
+   "T": 37.8
+  },
+  "regiones": [
+   {
+    "region": "Aspecto general",
+    "hallazgo": "Ansioso pero colaborador. Prefiere estar sentado e inclinado hacia delante. No está sudoroso ni pálido. Habla en frases completas.",
+    "clave": true,
+    "valor_semiologico": "La postura antiálgica (inclinado hacia delante) orienta a dolor pericárdico. Verificar el peso de este dato en McGee 4.ª ed."
+   },
+   {
+    "region": "Cabeza y cuello",
+    "hallazgo": "Venas yugulares no ingurgitadas con el paciente a 45°. Sin adenopatías cervicales. Faringe discretamente enrojecida.",
+    "clave": false,
+    "valor_semiologico": "La ausencia de ingurgitación yugular hace improbable un taponamiento cardiaco."
+   },
+   {
+    "region": "Tórax y pulmones",
+    "hallazgo": "Expansión simétrica, murmullo vesicular conservado, sin crepitantes ni sibilancias, sin matidez. Palpación de la pared torácica y de las uniones costocondrales sin dolor.",
+    "clave": false,
+    "valor_semiologico": "El dolor no se reproduce a la palpación, lo que aleja la costocondritis o la contusión de pared. Un murmullo conservado y simétrico aleja neumotórax y neumonía extensa."
+   },
+   {
+    "region": "Corazón",
+    "hallazgo": "Ritmo regular, sin soplos ni tercer ruido. En el borde esternal izquierdo, con la membrana del estetoscopio, el paciente inclinado hacia delante y en espiración, se oye un roce áspero, como cuero rozándose, con tres componentes (sístole, diástole temprana, sístole auricular), que cambia de un latido al otro.",
+    "clave": true,
+    "valor_semiologico": "El roce pericárdico es muy específico de pericarditis. Su sensibilidad es variable porque es transitorio y depende de auscultar varias veces y con la maniobra correcta. Verificar cifras exactas en McGee 4.ª ed."
+   },
+   {
+    "region": "Abdomen",
+    "hallazgo": "Blando, depresible, indoloro, sin hepatomegalia ni ascitis.",
+    "clave": false,
+    "valor_semiologico": "La ausencia de hepatomegalia y ascitis apoya que no hay compromiso del llenado cardiaco."
+   },
+   {
+    "region": "Extremidades y piel",
+    "hallazgo": "Sin edemas. Pantorrillas simétricas, sin dolor ni aumento de volumen. Pulsos radiales y femorales simétricos. Sin rash ni lesiones cutáneas.",
+    "clave": false,
+    "valor_semiologico": "Sin signos de trombosis venosa profunda; los pulsos simétricos hacen improbable una disección aórtica."
+   },
+   {
+    "region": "Pulso paradójico (maniobra)",
+    "hallazgo": "Descenso de la presión sistólica de 4 mmHg en la inspiración.",
+    "clave": false,
+    "valor_semiologico": "Un descenso inspiratorio menor de 10 mmHg es normal y descarta compromiso hemodinámico por derrame."
+   },
+   {
+    "region": "Neurológico",
+    "hallazgo": "Consciente, orientado, sin focalidad.",
+    "clave": false,
+    "valor_semiologico": "Sin hallazgos relevantes para este caso."
+   }
+  ]
+ },
+ "monitor": {
+  "ritmo": "sinusal",
+  "fc": 96,
+  "spo2": 98,
+  "ta": "118/72",
+  "fr": 18,
+  "temp": 37.8
+ },
+ "hipotesis": [
+  {
+   "nombre": "Pericarditis aguda",
+   "rol": "principal",
+   "a_favor": "Dolor pleurítico y postural, irradiación al trapecio, cuadro viral previo, febrícula, roce pericárdico, ECG con cambios difusos.",
+   "en_contra": "Nada relevante."
+  },
+  {
+   "nombre": "Síndrome coronario agudo",
+   "rol": "no_dejar_escapar",
+   "a_favor": "Dolor torácico agudo con irradiación al hombro y cuello.",
+   "en_contra": "Edad joven, dolor pleurítico y postural, no relacionado con el esfuerzo, sin cortejo vegetativo, ECG con elevación difusa y cóncava del ST sin cambios recíprocos."
+  },
+  {
+   "nombre": "Tromboembolia pulmonar",
+   "rol": "no_dejar_escapar",
+   "a_favor": "Dolor pleurítico.",
+   "en_contra": "Sin factores de riesgo, sin taquicardia ni hipoxemia, sin signos de TVP, causa alternativa evidente: probabilidad clínica baja."
+  },
+  {
+   "nombre": "Neumotórax espontáneo",
+   "rol": "plausible",
+   "a_favor": "Joven, delgado, dolor pleurítico.",
+   "en_contra": "Murmullo vesicular conservado, sin hiperresonancia, dolor que cambia con la postura."
+  },
+  {
+   "nombre": "Disección aórtica",
+   "rol": "distractor",
+   "a_favor": "Dolor intenso retroesternal.",
+   "en_contra": "Inicio gradual, no es desgarrante ni súbito, pulsos simétricos, sin hipertensión ni antecedentes."
+  },
+  {
+   "nombre": "Costocondritis o contusión de pared torácica",
+   "rol": "plausible",
+   "a_favor": "Dolor con la respiración.",
+   "en_contra": "No hay dolor a la palpación de la pared ni antecedente de golpe."
+  },
+  {
+   "nombre": "Crisis de ansiedad",
+   "rol": "distractor",
+   "a_favor": "Preocupación del paciente.",
+   "en_contra": "La ansiedad es consecuencia del dolor; no explica roce, fiebre ni cambios del ECG."
+  }
+ ],
+ "pruebas": [
+  {
+   "id": "P01",
+   "nombre": "ECG de 12 derivaciones",
+   "minutos": 5,
+   "valor": "imprescindible",
+   "resultado": "Ritmo sinusal a 94 lpm. Elevación cóncava del ST en I, II, aVF y V2-V6, con descenso del segmento PR en las mismas derivaciones. En aVR: ST descendido y PR elevado. Sin ondas Q, sin cambios recíprocos fuera de aVR.",
+   "imagen": "ECG de 12 derivaciones con ritmo sinusal y elevación difusa y cóncava del ST con descenso del PR, mayor en derivaciones inferiores y precordiales laterales; aVR con ST descendido y PR elevado.",
+   "interpretacion": "El patrón difuso y cóncavo, sin cambios recíprocos, sugiere pericarditis y se distingue del infarto, que es regional y con espejo."
+  },
+  {
+   "id": "P02",
+   "nombre": "Troponina de alta sensibilidad",
+   "minutos": 60,
+   "valor": "razonable",
+   "resultado": "6 ng/L (referencia <14).",
+   "imagen": null,
+   "interpretacion": "Normal. No hay evidencia de miocarditis asociada."
+  },
+  {
+   "id": "P03",
+   "nombre": "Hemograma y PCR",
+   "minutos": 45,
+   "valor": "razonable",
+   "resultado": "Leucocitos 11 200/mm³ con 72 % neutrófilos. PCR 38 mg/L (referencia <5).",
+   "imagen": null,
+   "interpretacion": "Marcadores inflamatorios elevados, coherentes con pericarditis y útiles para seguir la respuesta."
+  },
+  {
+   "id": "P04",
+   "nombre": "Radiografía de tórax",
+   "minutos": 15,
+   "valor": "razonable",
+   "resultado": "Silueta cardiaca de tamaño normal. Campos pulmonares limpios. Sin neumotórax ni derrame pleural.",
+   "imagen": "Radiografía de tórax PA normal: índice cardiotorácico normal, senos costofrénicos libres, sin neumotórax.",
+   "interpretacion": "Excluye neumotórax y neumonía, y no muestra cardiomegalia."
+  },
+  {
+   "id": "P05",
+   "nombre": "Ecocardiograma a pie de cama",
+   "minutos": 20,
+   "valor": "razonable",
+   "resultado": "Derrame pericárdico mínimo (menor de 5 mm) circunferencial, sin colapso de cavidades. Fracción de eyección normal, sin alteraciones segmentarias de la contractilidad.",
+   "imagen": "Ecocardiograma subcostal con una fina lámina anecoica alrededor del corazón.",
+   "interpretacion": "Apoya el diagnóstico y descarta taponamiento y isquemia regional."
+  },
+  {
+   "id": "P06",
+   "nombre": "Dímero D",
+   "minutos": 45,
+   "valor": "bajo_valor",
+   "resultado": "310 ng/mL (referencia <500).",
+   "imagen": null,
+   "interpretacion": "Con probabilidad clínica baja y causa alternativa clara no hacía falta pedirlo; un valor normal no aporta cambios."
+  },
+  {
+   "id": "P07",
+   "nombre": "Angiotomografía de arterias pulmonares",
+   "minutos": 60,
+   "valor": "bajo_valor",
+   "resultado": "Sin defectos de llenado. Mínimo derrame pericárdico.",
+   "imagen": null,
+   "interpretacion": "Radiación y contraste sin indicación en probabilidad baja de TEP."
+  },
+  {
+   "id": "P08",
+   "nombre": "Coronariografía urgente",
+   "minutos": 90,
+   "valor": "peligrosa",
+   "resultado": "Arterias coronarias sin lesiones.",
+   "imagen": null,
+   "interpretacion": "Procedimiento invasivo sin indicación: el ECG no es de infarto regional."
+  }
+ ],
+ "plan": [
+  {
+   "id": "M01",
+   "medida": "Explicar el diagnóstico, el curso habitualmente benigno y resolver el miedo a un infarto",
+   "categoria": "imprescindible",
+   "justificacion": "El paciente llegó asustado. La explicación mejora la adherencia al tratamiento y reduce reconsultas."
+  },
+  {
+   "id": "M02",
+   "medida": "Ibuprofeno 600 mg cada 8 horas con protector gástrico, y reducir de forma gradual cuando cedan los síntomas y baje la PCR",
+   "categoria": "imprescindible",
+   "justificacion": "Los AINE a dosis antiinflamatoria son la base del tratamiento. El descenso gradual disminuye las recaídas."
+  },
+  {
+   "id": "M03",
+   "medida": "Colchicina 0,5 mg cada 12 horas durante 3 meses (0,5 mg al día si pesa menos de 70 kg)",
+   "categoria": "imprescindible",
+   "justificacion": "Reduce de manera importante la recurrencia, que es la complicación más frecuente. Verificar dosis en la guía ESC 2015."
+  },
+  {
+   "id": "M04",
+   "medida": "Evitar el ejercicio intenso hasta que cedan los síntomas y se normalicen la PCR y el ECG",
+   "categoria": "razonable",
+   "justificacion": "El ejercicio puede prolongar el cuadro y favorecer recurrencias."
+  },
+  {
+   "id": "M05",
+   "medida": "Alta con control en una semana (síntomas, PCR) y signos de alarma por escrito: fiebre alta, aumento de la disnea, mareo o síncope, hinchazón de piernas",
+   "categoria": "razonable",
+   "justificacion": "Sin factores de mal pronóstico (fiebre mayor de 38 °C, inicio subagudo, derrame grande, taponamiento, falta de respuesta a AINE) el manejo ambulatorio es seguro."
+  },
+  {
+   "id": "M06",
+   "medida": "Corticoides sistémicos desde el inicio",
+   "categoria": "condicional",
+   "justificacion": "Se reservan para contraindicación o falta de respuesta a AINE y colchicina, tras descartar infección. Usados de entrada aumentan las recaídas."
+  },
+  {
+   "id": "M07",
+   "medida": "Ingreso hospitalario de 48 horas para observación",
+   "categoria": "bajo_valor",
+   "justificacion": "Sin criterios de alto riesgo, el ingreso no mejora el pronóstico y consume recursos."
+  },
+  {
+   "id": "M08",
+   "medida": "Anticoagulación y antiagregación con activación del código de infarto",
+   "categoria": "peligrosa",
+   "justificacion": "Trata un diagnóstico equivocado y puede favorecer hemopericardio. El ECG no es de infarto."
+  },
+  {
+   "id": "M09",
+   "medida": "Pericardiocentesis",
+   "categoria": "peligrosa",
+   "justificacion": "Sin taponamiento no hay indicación y es un procedimiento con riesgo de complicaciones."
+  }
+ ],
+ "trampas": [
+  {
+   "error": "No hacer un ECG de 12 derivaciones",
+   "gravedad": "grave",
+   "condicion": "No se solicita P01"
+  },
+  {
+   "error": "No tomar las constantes vitales",
+   "gravedad": "grave",
+   "condicion": "No se abre la exploración de constantes"
+  },
+  {
+   "error": "Tratar como infarto (anticoagular, antiagregar, cateterismo) sin analizar el ECG",
+   "gravedad": "grave",
+   "condicion": "Se elige M08 o P08"
+  },
+  {
+   "error": "Dar el alta sin explicar signos de alarma ni control",
+   "gravedad": "grave",
+   "condicion": "No se elige M05"
+  },
+  {
+   "error": "No auscultar el corazón con el paciente inclinado hacia delante",
+   "gravedad": "leve",
+   "condicion": "No se abre la región Corazón"
+  },
+  {
+   "error": "No preguntar por la postura ni por el cuadro viral previo",
+   "gravedad": "leve",
+   "condicion": "No se hacen A03 ni A07"
+  },
+  {
+   "error": "Pedir dímero D o angio-TC sin valorar la probabilidad clínica de TEP",
+   "gravedad": "leve",
+   "condicion": "Se piden P06 o P07 sin descartar con la historia"
+  }
+ ],
+ "razonamiento": {
+  "sintomas_a_hipotesis": "Un dolor torácico agudo en un joven obliga a pensar en lo peligroso: síndrome coronario, tromboembolia pulmonar, neumotórax y disección. El carácter pleurítico, el alivio al inclinarse y el cuadro viral previo desplazan la probabilidad hacia el pericardio.",
+  "pruebas_a_diagnostico": "El diagnóstico de pericarditis aguda requiere al menos dos de cuatro criterios: dolor pericardítico, roce, elevación difusa del ST o descenso del PR, y derrame nuevo o que aumenta. Aquí se cumplen los cuatro. La troponina normal y la ecocardiografía sin disfunción alejan miocarditis y taponamiento.",
+  "manejo": "AINE más colchicina, restricción de ejercicio y control. Se hospitaliza solo si hay factores de mal pronóstico."
+ },
+ "finales": {
+  "bien": "El paciente toma ibuprofeno y colchicina. El dolor cede a los 3 o 4 días. En el control de una semana la PCR ha bajado y completa 3 meses de colchicina sin recaídas.",
+  "tarde": "Sale con AINE sin colchicina. A las tres semanas reaparece el dolor. Con colchicina, las recaídas son mucho menos frecuentes que sin ella (aproximadamente 10 % frente a 30 % en los ensayos clásicos; verificar cifras).",
+  "mal": "Se trata como infarto con aspirina, heparina y coronariografía. Las coronarias son normales, hay una complicación en el sitio de punción y pasa tres días ingresado con la etiqueta de dolor torácico a estudio."
+ },
+ "objetivos": [
+  "Reconocer el dolor pericardítico y su diferencia con el dolor isquémico y el pleurítico no postural.",
+  "Aplicar los criterios diagnósticos de pericarditis aguda e interpretar un ECG con cambios difusos.",
+  "Estratificar el riesgo y tratar con AINE, colchicina y restricción de ejercicio."
+ ],
+ "para_recordar": [
+  "El dolor que mejora al sentarse inclinado hacia delante y empeora en decúbito es pericardítico hasta demostrar lo contrario.",
+  "Elevación difusa y cóncava del ST con descenso del PR y sin cambios recíprocos no es infarto.",
+  "AINE más colchicina por tres meses: es la combinación que evita recaídas."
+ ],
+ "reto": {
+  "pregunta": "Un joven con dolor torácico pleurítico que mejora al inclinarse y ECG con elevación difusa y cóncava del ST y descenso del PR, sin factores de mal pronóstico. ¿Cuál es el tratamiento adecuado?",
+  "opciones": [
+   "Aspirina 300 mg, heparina y coronariografía urgente",
+   "Ibuprofeno más colchicina, restricción de ejercicio y control en una semana",
+   "Prednisona 1 mg/kg desde el primer día",
+   "Pericardiocentesis diagnóstica"
+  ],
+  "correcta": 1,
+  "explicacion": "El manejo de primera línea es AINE más colchicina. Los corticoides son de segunda línea y la pericardiocentesis requiere taponamiento o sospecha de pericarditis purulenta o neoplásica."
+ },
+ "bibliografia": [
+  {
+   "fuente": "Bickley L. Bates' Guide to Physical Examination and History Taking, 13.ª ed.",
+   "nota": "Capítulo del sistema cardiovascular: auscultación y roce pericárdico (verificar número de capítulo)."
+  },
+  {
+   "fuente": "McGee S. Evidence-Based Physical Diagnosis, 4.ª ed.",
+   "nota": "Capítulos de dolor torácico y de auscultación cardiaca (verificar capítulo y cifras del roce pericárdico)."
+  },
+  {
+   "fuente": "Harrison. Principios de Medicina Interna, 21.ª ed.",
+   "nota": "Capítulo de enfermedades del pericardio (verificar número)."
+  },
+  {
+   "fuente": "Adler Y y cols. 2015 ESC Guidelines for the diagnosis and management of pericardial diseases. Eur Heart J 2015;36:2921-2964",
+   "nota": "doi:10.1093/eurheartj/ehv318"
+  }
+ ],
+ "pendiente_verificar": [
+  "Cifra de sensibilidad del roce pericárdico (McGee)",
+  "Dosis de colchicina y frecuencia de recurrencia citadas en los finales",
+  "Números de capítulo de Bates, McGee y Harrison"
+ ]
+}

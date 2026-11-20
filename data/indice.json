@@ -1,0 +1,38 @@
+{
+ "version": 1,
+ "casos": [
+  {
+   "id": "083",
+   "archivo": "casos/083.json",
+   "motivo": "Dolor en el pecho que mejora al inclinarse hacia delante",
+   "especialidad": "Cardiología",
+   "nivel": "Básico",
+   "modo": "clasico",
+   "minutos_estimados": 12,
+   "borrador": false,
+   "imagen": false
+  },
+  {
+   "id": "901",
+   "archivo": "casos/901.json",
+   "motivo": "El corazón me late rapidísimo y me siento a punto de desmayarme",
+   "especialidad": "Cardiología",
+   "nivel": "Intermedio",
+   "modo": "urgente",
+   "minutos_estimados": 12,
+   "borrador": true,
+   "imagen": false
+  },
+  {
+   "id": "902",
+   "archivo": "casos/902.json",
+   "motivo": "Un dolor en el costado que no me deja quedarme quieto",
+   "especialidad": "Nefrología",
+   "nivel": "Básico",
+   "modo": "clasico",
+   "minutos_estimados": 12,
+   "borrador": true,
+   "imagen": false
+  }
+ ]
+}
