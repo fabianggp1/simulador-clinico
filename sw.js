@@ -1,7 +1,7 @@
 /* Service worker: guarda la página y los casos para usarlos sin internet.
    Con internet siempre intenta traer la versión más nueva; sin internet usa lo guardado.
    Cambia VERSION cuando publiques cambios para limpiar lo viejo. */
-const VERSION = 'sc-v1';
+const VERSION = 'sc-v2';
 const BASE = ['./', 'index.html', 'css/estilos.css', 'js/monitor.js', 'js/motor.js', 'js/app.js',
   'manifest.webmanifest', 'iconos/icono-180.png', 'iconos/icono-192.png', 'iconos/icono-512.png', 'data/indice.json'];
 

@@ -87,16 +87,16 @@
   async function ruta() {
     limpiar();
     window.scrollTo(0, 0);
-    const h = (location.hash || '#/').replace(/^#/, '');
-    const p = h.split('/').filter(Boolean);
+    const h = (location.hash || '').replace(/^#\/?/, '');
+    const m = h.match(/^(caso|fin)-(\d{3})$/);
     try {
-      if (p[0] === 'caso' && p[1]) await vistaAtencion(p[1]);
-      else if (p[0] === 'fin' && p[1]) await vistaFin(p[1]);
-      else if (p[0] === 'ritmos') vistaRitmos();
+      if (m && m[1] === 'caso') await vistaAtencion(m[2]);
+      else if (m && m[1] === 'fin') await vistaFin(m[2]);
+      else if (h === 'ritmos') vistaRitmos();
       else await vistaInicio();
     } catch (e) {
       app.innerHTML = '<div class="pagina"><div class="aviso-caja"><h2>No se pudo cargar</h2><p>' + esc(e.message) +
-        '</p><a class="btn primario" href="#/">Volver al inicio</a></div></div>';
+        '</p><a class="btn primario" href="#inicio">Volver al inicio</a></div></div>';
     }
   }
 
@@ -132,8 +132,8 @@
       '<label><input type="checkbox" data-a="tutor" ' + (al.ajustes.tutor ? 'checked' : '') + '> Modo tutor (no revela explicaciones hasta que las pidas)</label>' +
       '<button class="btn" data-a="exportar">Exportar mi progreso</button>' +
       '<button class="btn" data-a="importar">Importar progreso</button>' +
-      '<a class="btn" href="#/ritmos">Probar los ritmos del monitor</a>' +
-      '<input type="file" id="archivo" accept="application/json,.json" class="oculto"></div>' +
+      '<a class="btn" href="#ritmos">Probar los ritmos del monitor</a>' +
+      '</div>' +
       '<div id="estado-offline" class="pie" style="margin:0">Tu progreso se guarda en este dispositivo. Para pasarlo entre iPad y computadora usa Exportar e Importar.</div></div>' +
       '<div class="lista-casos">' + tarjetas + '</div>' +
       '<p class="pie">MiniCEX, estadísticas y exportación de tarjetas de repaso llegarán en pasos siguientes. Los casos marcados como borrador esperan tu revisión clínica.</p></main>';
@@ -154,33 +154,81 @@
       const al = Almacen.leer();
       al.sesiones[id] = Motor.crear(caso, { tutor: al.ajustes.tutor });
       Almacen.guardar();
-      ir('#/caso/' + id);
+      ir('#caso-' + id);
     });
   }
 
-  /* ---------- Exportar / importar ---------- */
-  function exportar() {
-    const d = Almacen.leer();
-    const carga = { formato: 'simulador-clinico', version: 1, exportado: new Date().toISOString(), ajustes: d.ajustes, sesiones: d.sesiones };
-    const blob = new Blob([JSON.stringify(carga, null, 1)], { type: 'application/json' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'simulador-progreso-' + new Date().toISOString().slice(0, 10) + '.json';
-    document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  /* ---------- Diálogos dentro de la página ---------- */
+  function dialogo(titulo, cuerpoHtml, botones) {
+    return new Promise((resolver) => {
+      const f = document.createElement('div');
+      f.className = 'modal-fondo';
+      f.innerHTML = '<div class="modal-caja" role="dialog" aria-modal="true"><h2>' + esc(titulo) + '</h2><div class="modal-cuerpo">' + cuerpoHtml + '</div><div class="modal-botones">' +
+        botones.map((b, i) => '<button class="btn ' + (b.clase || '') + '" data-i="' + i + '">' + esc(b.texto) + '</button>').join('') + '</div></div>';
+      document.body.appendChild(f);
+      const cerrar = (v) => { f.remove(); resolver(v); };
+      f.addEventListener('click', (e) => {
+        const b = e.target.closest('button[data-i]'); if (!b) return;
+        const op = botones[+b.dataset.i];
+        if (op.accion) op.accion(f);
+        if (!op.mantener) cerrar(op.valor);
+      });
+      const primero = f.querySelector('button.primario') || f.querySelector('button'); if (primero) primero.focus();
+    });
   }
-  function importar(archivo) {
-    const lector = new FileReader();
-    lector.onload = () => {
-      try {
-        const c = JSON.parse(lector.result);
-        if (c.formato !== 'simulador-clinico' || typeof c.sesiones !== 'object') throw new Error('formato');
-        if (!confirm('Esto reemplaza el progreso guardado en este dispositivo por el del archivo. ¿Continuar?')) return;
-        Almacen.datos = { sesiones: c.sesiones, ajustes: Object.assign({ tutor: true, tema: 'auto' }, c.ajustes) };
-        Almacen.guardar(); aplicarTema(); ruta();
-      } catch (e) { alert('Ese archivo no es un progreso válido del simulador.'); }
-    };
-    lector.readAsText(archivo);
+  const confirmar = (texto) => dialogo('Confirmar', '<p>' + esc(texto) + '</p>', [{ texto: 'Cancelar', valor: false }, { texto: 'Continuar', clase: 'primario', valor: true }]);
+  const avisar = (texto) => dialogo('Aviso', '<p>' + esc(texto) + '</p>', [{ texto: 'Entendido', clase: 'primario', valor: true }]);
+
+  /* ---------- Exportar / importar ---------- */
+  function cargaProgreso() {
+    const d = Almacen.leer();
+    return JSON.stringify({ formato: 'simulador-clinico', version: 1, exportado: new Date().toISOString(), ajustes: d.ajustes, sesiones: d.sesiones }, null, 1);
+  }
+  function exportar() {
+    const texto = cargaProgreso();
+    dialogo('Exportar mi progreso',
+      '<p>Descarga el archivo o copia el texto y guárdalo en tus notas. Para pasarlo a otro dispositivo, usa «Importar progreso».</p>' +
+      '<textarea class="bloc" id="exp-texto" readonly rows="6" aria-label="Progreso exportado"></textarea><p id="exp-estado" class="pie" style="margin:6px 0 0"></p>',
+      [{ texto: 'Descargar archivo', mantener: true, accion: () => {
+        const blob = new Blob([texto], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'simulador-progreso-' + new Date().toISOString().slice(0, 10) + '.json';
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+        $('#exp-estado').textContent = 'Si no se descargó nada, usa «Copiar texto».';
+      } },
+      { texto: 'Copiar texto', mantener: true, accion: () => {
+        const t = $('#exp-texto'); t.focus(); t.select();
+        const ok = () => { $('#exp-estado').textContent = 'Texto copiado.'; };
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(texto).then(ok, () => { $('#exp-estado').textContent = 'Selecciona el texto y cópialo a mano.'; });
+        else $('#exp-estado').textContent = 'Selecciona el texto y cópialo a mano.';
+      } },
+      { texto: 'Cerrar', clase: 'primario', valor: true }]);
+    $('#exp-texto').value = texto;
+  }
+  async function aplicarImportacion(texto) {
+    let c;
+    try {
+      c = JSON.parse(texto);
+      if (c.formato !== 'simulador-clinico' || typeof c.sesiones !== 'object') throw new Error('formato');
+    } catch (e) { await avisar('Ese contenido no es un progreso válido del simulador.'); return false; }
+    if (!(await confirmar('Esto reemplaza el progreso guardado en este dispositivo por el importado.'))) return false;
+    Almacen.datos = { sesiones: c.sesiones, ajustes: Object.assign({ tutor: true, tema: 'auto' }, c.ajustes) };
+    Almacen.guardar(); aplicarTema(); ruta();
+    return true;
+  }
+  function importar() {
+    dialogo('Importar progreso',
+      '<p>Elige el archivo exportado o pega aquí el texto.</p><input type="file" id="imp-archivo" accept="application/json,.json" style="min-height:44px">' +
+      '<textarea class="bloc" id="imp-texto" rows="5" placeholder="…o pega el texto del progreso" aria-label="Texto del progreso"></textarea>',
+      [{ texto: 'Cancelar', valor: false },
+      { texto: 'Importar', clase: 'primario', mantener: true, accion: async (f) => {
+        const arch = $('#imp-archivo').files[0];
+        const texto = arch ? await arch.text() : $('#imp-texto').value;
+        if (!texto.trim()) { await avisar('Elige un archivo o pega el texto.'); return; }
+        if (await aplicarImportacion(texto)) f.remove();
+      } }]);
   }
 
   /* ---------- Pantalla de atención ---------- */
@@ -419,20 +467,20 @@
   async function vistaFin(id) {
     const caso = await cargarCaso(id);
     const s = Almacen.leer().sesiones[id];
-    if (!s || s.estado !== 'terminado') { ir('#/caso/' + id); return; }
+    if (!s || s.estado !== 'terminado') { ir('#caso-' + id); return; }
     const total = caso.anamnesis.reduce((n, g) => n + g.preguntas.length, 0);
     let msg = '';
     if (s.resultado && s.resultado.motivo === 'fin') {
       const f = caso.urgente.fin;
       msg = '<div class="situacion ' + (s.resultado.estable ? 'bien' : 'mal') + '"><small>' + (s.resultado.estable ? 'Paciente estable' : 'Paciente inestable') + '</small>' + esc(s.resultado.estable ? f.mensaje_estable : f.mensaje_inestable) + '</div>';
     }
-    app.innerHTML = '<header class="cab"><a class="btn ghost" href="#/">‹ Inicio</a><h1>Caso ' + esc(id) + '</h1><button class="btn ghost" data-a="tema">' + etiquetaTema() + '</button></header>' +
+    app.innerHTML = '<header class="cab"><a class="btn ghost" href="#inicio">‹ Inicio</a><h1>Caso ' + esc(id) + '</h1><button class="btn ghost" data-a="tema">' + etiquetaTema() + '</button></header>' +
       '<main class="pagina"><div class="fin-caja"><h2>Atención terminada en el minuto ' + s.resultado.minuto + '</h2>' + msg +
       '<p style="margin-top:10px">Preguntas hechas: ' + Object.keys(s.preguntas).length + ' de ' + total + '. Regiones exploradas: ' + Object.keys(s.regiones).length + ' de ' + caso.exploracion.regiones.length +
       '. Pruebas pedidas: ' + Object.keys(s.pruebas).length + ' de ' + caso.pruebas.length + (Motor.esUrgente(caso) ? '. Tratamientos aplicados: ' + Object.keys(s.tratamientos).length : '') + '.</p>' +
       '<div class="aviso-caja"><b>Paso 2 (pendiente):</b> aquí irán tu hipótesis con autocompletado, el plan con tarjetas ✓/✕, la puntuación y el informe de 10 pantallas.</div>' +
       '<h3 style="margin:14px 0 6px">Registro de tu atención</h3>' + (s.registro.map((r) => '<div class="registro-item ' + (r.tipo === 'fase' ? 'fase' : r.tipo === 'fin' ? 'fin' : '') + '"><span class="m">min ' + r.min + '</span><span>' + esc(r.texto) + '</span></div>').join('')) +
-      '<div class="chips" style="margin-top:14px;gap:8px"><a class="btn primario" href="#/">Volver al inicio</a><button class="btn" data-a="reiniciar" data-id="' + id + '">Repetir este caso</button></div></div></main>';
+      '<div class="chips" style="margin-top:14px;gap:8px"><a class="btn primario" href="#inicio">Volver al inicio</a><button class="btn" data-a="reiniciar" data-id="' + id + '">Repetir este caso</button></div></div></main>';
   }
 
   /* ---------- Banco de ritmos del monitor ---------- */
@@ -443,7 +491,7 @@
     ['bloqueo_av_completo', 36, '95/60'], ['asistolia', 0, '0/0'], ['actividad_electrica_sin_pulso', 40, '0/0'], ['hiperpotasemia_grave', 48, '90/55']
   ];
   function vistaRitmos() {
-    app.innerHTML = '<header class="cab"><a class="btn ghost" href="#/">‹ Inicio</a><h1>Ritmos del monitor<span class="sub">Practica reconocerlos</span></h1><button class="btn ghost" data-a="tema">' + etiquetaTema() + '</button></header>' +
+    app.innerHTML = '<header class="cab"><a class="btn ghost" href="#inicio">‹ Inicio</a><h1>Ritmos del monitor<span class="sub">Practica reconocerlos</span></h1><button class="btn ghost" data-a="tema">' + etiquetaTema() + '</button></header>' +
       '<main class="pagina"><div class="aviso-caja"><label class="ajustes" style="margin:0"><span class="fila" style="border:0;background:none;padding:0;margin:0"><input type="checkbox" id="ocultar" data-a="ocultar"> Ocultar los nombres (practicar)</span></label></div>' +
       '<div class="rejilla-ritmos">' + DEMO.map((d, i) => '<div class="caja-ritmo"><h3 class="nombre">' + esc(Monitor.NOMBRES[d[0]]) + ' <span class="costo">' + (d[1] ? d[1] + ' lpm' : 'sin frecuencia') + '</span></h3><canvas id="r' + i + '" aria-label="' + esc(Monitor.NOMBRES[d[0]]) + '"></canvas>' +
         '<button class="btn chico oculto" data-a="revelar">Mostrar nombre</button></div>').join('') + '</div></main>';
@@ -461,19 +509,19 @@
     tema: alternarTema,
     tutor(d, el) { Almacen.leer().ajustes.tutor = el.checked; Almacen.guardar(); },
     exportar,
-    importar() { $('#archivo').click(); },
+    importar,
     iniciar(d) { iniciar(d.id); },
-    continuar(d) { ir('#/caso/' + d.id); },
-    verfin(d) { ir('#/fin/' + d.id); },
-    reiniciar(d) {
-      if (!confirm('Se borrará lo que hiciste en este caso y empezarás de nuevo. ¿Continuar?')) return;
+    continuar(d) { ir('#caso-' + d.id); },
+    verfin(d) { ir('#fin-' + d.id); },
+    async reiniciar(d) {
+      if (!(await confirmar('Se borrará lo que hiciste en este caso y empezarás de nuevo.'))) return;
       iniciar(d.id);
     },
-    salir() { guardarSesion(); ir('#/'); },
-    terminar() {
-      if (evitarSiTerminado()) { ir('#/fin/' + A.caso.id); return; }
-      if (!confirm('¿Terminar la atención ahora? No podrás seguir actuando sobre este paciente.')) return;
-      Motor.terminar(A.caso, A.s); guardarSesion(); ir('#/fin/' + A.caso.id);
+    salir() { guardarSesion(); ir('#inicio'); },
+    async terminar() {
+      if (evitarSiTerminado()) { ir('#fin-' + A.caso.id); return; }
+      if (!(await confirmar('¿Terminar la atención ahora? No podrás seguir actuando sobre este paciente.'))) return;
+      Motor.terminar(A.caso, A.s); guardarSesion(); ir('#fin-' + A.caso.id);
     },
     curvas() { const l = $('#lienzo'); l.style.display = l.style.display === 'none' ? '' : 'none'; setTimeout(fijarAltoMonitor, 30); },
     tab(d) { A.tab = d.t; pintarTabs(); pintarCuerpo(); },
@@ -506,7 +554,6 @@
     const f = acciones[el.dataset.a];
     if (f) f(el.dataset, el, e);
   });
-  document.addEventListener('change', (e) => { if (e.target.id === 'archivo' && e.target.files[0]) importar(e.target.files[0]); });
 
   window.addEventListener('hashchange', ruta);
   window.addEventListener('pagehide', guardarSesion);
