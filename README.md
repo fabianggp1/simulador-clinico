@@ -42,6 +42,9 @@ FC 60–100 lpm · SpO₂ ≥ 94 % · FR 12–20 rpm · temperatura 36,0–37,9 
    (si solo se agregó un archivo a `data/casos/`: `python3 herramientas/preparar_casos.py`)
 3. Subir el valor de `VERSION` en `sw.js` para que los dispositivos descarguen lo nuevo.
 
+## Publicación
+La página se publica con GitHub Pages (rama `main`, carpeta raíz) en https://fabianggp1.github.io/simulador-clinico/
+
 ## Probar en local
 `python3 -m http.server 8000` y abrir `http://localhost:8000`.
 
